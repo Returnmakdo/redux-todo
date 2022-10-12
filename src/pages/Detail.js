@@ -8,9 +8,10 @@ const Detail = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todos.todo);
 
-  const { id } = useParams();
+  const { id } = useParams(); // router에 가보면  :id 라고되어있으니 id로 구조분해할당으로 받아옴
   const navigate = useNavigate();
 
+  // getTodoByID를 안썻을때 const todo = todos.find((todo) => {todo.id === +id})
   useEffect(() => {
     dispatch(getTodoByID(id));
   }, [dispatch, id]);
